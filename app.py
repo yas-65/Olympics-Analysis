@@ -148,7 +148,7 @@ if user_menu=="Country Wise Analysis":
     st.title( " Top  Athelethecis of " + selected_country )
     
     st.table(x)
-
+# user selected Athelete wise analysis
 if user_menu=="Athlete Wise Analysis ":
     df1=data5.drop_duplicates(subset=["Name","region"])
     
@@ -157,26 +157,26 @@ if user_menu=="Athlete Wise Analysis ":
     x3=df1[df1["Medal"]=="Silver"]["Age"].dropna()
     x4=df1[df1["Medal"]=="Bronze"]["Age"].dropna()
 
-   
-    fig=ff.create_distplot([x1,x2,x3,x4],["Overall Age","Gold Medalist","Silver Medalist","Bronze Medalist"],show_hist=False,show_rug=False)
+# distriubution of age for parcicular medal winning
+    fig=ff.create_distplot([x2,x3,x4],["Gold Medalist","Silver Medalist","Bronze Medalist"],show_hist=False,show_rug=False)
     fig.update_layout(autosize=False,width=1000,height=800)
     st.title("Distribution of Age")
 
     st.plotly_chart(fig)
-    x=[]
-    name=[]
-    fsport=['Basketball', 'Judo', 'Football', 'Tug-Of-War', 'Athletics',
-       'Swimming', 'Badminton']
+    # x=[]
+    # name=[]
+    # fsport=['Basketball', 'Judo', 'Football', 'Tug-Of-War', 'Athletics',
+    #    'Swimming', 'Badminton']
 
-    for sport in fsport:
-        df=data5[data5["Sport"]==sport]
-        x.append(data5[data5["Medal"]=="Gold"]["Age"].dropna())
-        name.append(sport)
+    # for sport in fsport:
+    #     df=data5[data5["Sport"]==sport]
+    #     x.append(data5[data5["Medal"]=="Gold"]["Age"].dropna())
+    #     name.append(sport)
 
-    fig=ff.create_distplot(x,name,show_hist=False,show_rug=False)
-    fig.update_layout(autosize=False,height=1000,width=800)
-    st.title("Distribution Of Age for Gold Medalist")
-    st.plotly_chart(fig)
+    # fig=ff.create_distplot(x,name,show_hist=False,show_rug=False)
+    # fig.update_layout(autosize=False,height=1000,width=800)
+    # st.title("Distribution Of Age for Gold Medalist")
+    # st.plotly_chart(fig)
     st.title("weight vs Height") 
     selectc=data5["Sport"].unique().tolist()
     selectc.sort()
