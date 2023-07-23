@@ -1,7 +1,6 @@
 import streamlit as st 
 import pre
 import pandas as pd
-# import medal
 import tally
 import matplotlib.pyplot as plt
 import plotly.express as px
